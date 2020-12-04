@@ -61,7 +61,24 @@
         id: uuidv4(),
         active: false,
         },
-        //ADD MORE HERE
+        {
+            name: "Frozen Firs",
+            artist: "goosetaf, xander., Anbuu",
+            cover: "https://chillhop.com/wp-content/uploads/2020/10/0e5bb63f838ff92eeac142aae944e9f678df13c9-1024x1024.jpg",
+            id: uuidv4(),
+            active: false,
+            color: ['#9A3134', '#2E5B60'],
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=10313",
+        },
+        {
+            name: "There And Back",
+            artist: "Shopan",
+            cover: "https://chillhop.com/wp-content/uploads/2020/10/0e5bb63f838ff92eeac142aae944e9f678df13c9-1024x1024.jpg",
+            id: uuidv4(),
+            active: false,
+            color: ['#69547F', '#604F7B'],
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=10311",
+        }
     ];
     }
 
