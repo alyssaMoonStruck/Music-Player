@@ -8,7 +8,6 @@ import Player from "./components/Player";
 import Song from "./components/Song";
 import Library from "./components/Library";
 import Nav from "./components/Nav";
-import { faListUl } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   //Ref
@@ -32,11 +31,22 @@ function App() {
     const roundedCurrent = Math.round(current)
     const roundedDuration = Math.round(duration)
     const animation = Math.round((roundedCurrent / roundedDuration) * 100)
-    setSongInfo({ ...songInfo, currentTime: current, duration, animationPercentage:animation });
+    setSongInfo({ 
+      ...songInfo, 
+      currentTime: current, 
+      duration, 
+      animationPercentage: animation 
+    });
   };
-  console.log(currentSong)
+const songEndHandler = async () => {
+  let currentIndex = songs.findIndex( song  => song.id === currentSong.id);
+      let newSong = songs[(currentIndex + 1) % songs.length];
+        await setCurrentSong(newSong);
+        if(isPlaying) audioRef.current.play()
+}
+
   return (
-    <div className="App">
+    <div className={`App ${libraryStatus ? 'library-active' : ""}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
@@ -63,6 +73,7 @@ function App() {
         onTimeUpdate={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={songEndHandler}
       ></audio>
     </div>
   );
