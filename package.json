@@ -1,6 +1,6 @@
 {
-  "name": "react-player",
-  "homepage": "http://alyssaMoonStruck.github.io/music-player",
+  "name": "music-player",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
