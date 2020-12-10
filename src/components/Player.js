@@ -86,23 +86,24 @@ const Player = ({
             <p>{songInfo.duration ? getTime(songInfo.currentTime) : "0:00" }</p>
             <div style={{background: `linear-gradient(to right, ${currentSong.color[0]},${currentSong.color[1]})`}} className="track">
                 <input 
-                min={0} 
-                max={songInfo.duration || 0} 
                 value={songInfo.currentTime} 
-                onChange={dragHandler} 
                 type="range" 
+                max={songInfo.duration || 0}
+                min={0} 
+                onChange={dragHandler} 
+                
                 />
                 <div style={trackAnim} className="animate-track"></div>
                 </div>
             <p>{getTime(songInfo.duration)}</p>
         </div>
         <div className="play-control">
-            <FontAwesomeIcon onClick={() => skipTrackHandler('skip-back')} classNmae="skip-back" size="2x" icon={faAngleLeft}/>
+            <FontAwesomeIcon onClick={() => skipTrackHandler('skip-back')} className="skip-back" size="2x" icon={faAngleLeft}/>
             <FontAwesomeIcon onClick={playSongHandler} 
-            classNmae="play" 
+            className="play" 
             size="2x" 
             icon={isPlaying ? faPause : faPlay}/>
-            <FontAwesomeIcon onClick={() => skipTrackHandler('skip-forward')} classNmae="skip-forward" 
+            <FontAwesomeIcon onClick={() => skipTrackHandler('skip-forward')} className="skip-forward" 
             size="2x" 
             icon={faAngleRight} />
         </div>
