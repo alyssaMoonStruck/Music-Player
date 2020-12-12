@@ -26,7 +26,7 @@ function App() {
   // Time Change Handler / Listener
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
-    const duration = e.target.duration;
+    const duration = e.target.duration || 0
 
     const roundedCurrent = Math.round(current);
     const roundedDuration = Math.round(duration);
